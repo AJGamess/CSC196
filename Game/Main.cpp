@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 	input.Initialize();
 
 	Time time;
-	/*
+	
 	// create audio system
 	FMOD::System* audio;
 	FMOD::System_Create(&audio);
@@ -48,7 +48,7 @@ int main(int argc, char* argv[])
 
 	audio->createSound("cowbell.wav", FMOD_DEFAULT, 0, &sound);
 	sounds.push_back(sound);
-	*/
+	
 
 	std::vector<Particle> particles;
 	float offset = 0;
@@ -106,6 +106,7 @@ int main(int argc, char* argv[])
 		{
 			for (int i = 0; i < 300; i++)
 			{
+				audio->update();
 				particles.push_back(Particle{ mousePosition, randomOnUnitCircle() * randomf(10, 200), randomf(1, 3), (uint8_t)random(255), (uint8_t)random(255), (uint8_t)random(255), 0} );
 			}		
 		}
@@ -117,7 +118,7 @@ int main(int argc, char* argv[])
 			if (particle.position.x > 800) particle.position.x = 0;
 			if (particle.position.x < 0) particle.position.x = 800;
 		}
-		/*
+		
 		// DRUM MACHINE
 		if (input.GetKeyDown(SDL_SCANCODE_E) && !input.GetPreviousKeyDown(SDL_SCANCODE_E)) audio->playSound(sounds[2], 0, false, nullptr);
 		if (input.GetKeyDown(SDL_SCANCODE_R) && !input.GetPreviousKeyDown(SDL_SCANCODE_R)) audio->playSound(sounds[3], 0, false, nullptr);
@@ -125,7 +126,7 @@ int main(int argc, char* argv[])
 		if (input.GetKeyDown(SDL_SCANCODE_Y) && !input.GetPreviousKeyDown(SDL_SCANCODE_Y)) audio->playSound(sounds[5], 0, false, nullptr);
 		if (input.GetKeyDown(SDL_SCANCODE_Q) && !input.GetPreviousKeyDown(SDL_SCANCODE_Q)) audio->playSound(sounds[0], 0, false, nullptr);
 		if (input.GetKeyDown(SDL_SCANCODE_W) && !input.GetPreviousKeyDown(SDL_SCANCODE_W)) audio->playSound(sounds[1], 0, false, nullptr);
-		*/
+	
 
 		// DRAW
 		// clear screen
