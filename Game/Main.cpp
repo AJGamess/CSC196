@@ -57,6 +57,14 @@ int main(int argc, char* argv[])
 	std::vector<Vector2> points;
 	points.push_back(Vector2{ 5 , 0 });
 	points.push_back(Vector2{ -5, -5 });
+	points.push_back(Vector2{ -5, -3 });
+	points.push_back(Vector2{ -7, -3 });
+	points.push_back(Vector2{ -7, -2 });
+	points.push_back(Vector2{ -5, -2 });
+	points.push_back(Vector2{ -5, 2 });
+	points.push_back(Vector2{ -7, 2 });
+	points.push_back(Vector2{ -7, 3 });
+	points.push_back(Vector2{ -5, 3 });
 	points.push_back(Vector2{ -5, 5 });
 	points.push_back(Vector2{ 5, 0 });
 
@@ -134,9 +142,9 @@ int main(int argc, char* argv[])
 		renderer.BeginFrame();
 
 		renderer.SetColor(255, 255, 255, 0);
-		float radius = 5;
+		float radius = 6;
 		offset += (90 * time.GetDeltaTime());
-		for (float angle = 0; angle < 360; angle += 360 / 60)
+		/*for (float angle = 0; angle < 360; angle += 360 / 60)
 		{
 			float x = Math::Cos(Math::DegToRad(angle + offset)) * Math::Sin((offset + angle) * 0.1f) * (radius + angle * 0.2f);
 			float y = Math::Sin(Math::DegToRad(angle + offset)) * Math::Cos((offset + angle) * 0.1f) * (radius + angle * 0.2f);
@@ -145,7 +153,7 @@ int main(int argc, char* argv[])
 
 			renderer.SetColor(random(256), random(256), random(256), 0);
 			renderer.DrawRect(400 + x, 300 + y, 10.0f, 10.0f);
-		}
+		}*/
 
 		// draw particles
 		renderer.SetColor(255, 255, 255, 0);
