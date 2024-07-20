@@ -5,7 +5,7 @@ void Model::Draw(Renderer& renderer, const Vector2& position, float angle, float
 	if (m_points.empty()) return;
 	
 	renderer.SetColor(Color::ToInt(m_color.r), Color::ToInt(m_color.g), Color::ToInt(m_color.b), Color::ToInt(m_color.a));
-	for (int i = 0; i < m_points.size(); i++)
+	for (int i = 0; i < m_points.size()-1; i++)
 	{
 		Vector2 p1 = m_points[i].Rotate(angle) * scale + position;
 		Vector2 p2 = m_points[i+1].Rotate(angle) * scale + position;
@@ -21,7 +21,7 @@ void Model::Draw(Renderer& renderer, Transform& transform)
 
 	renderer.SetColor(Color::ToInt(m_color.r), Color::ToInt(m_color.g), Color::ToInt(m_color.b), Color::ToInt(m_color.a));
 
-	for (int i = 0; i < m_points.size(); i++)
+	for (int i = 0; i < m_points.size()-1; i++)
 	{
 		Vector2 p1 = m_points[i].Rotate(transform.rotation) * transform.scale + transform.position;
 		Vector2 p2 = m_points[i + 1].Rotate(transform.rotation) * transform.scale + transform.position;

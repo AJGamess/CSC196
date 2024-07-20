@@ -1,15 +1,6 @@
-#include "..\Engine\Color.h"
-#include "..\Engine\Input.h"
-#include "..\Engine\Renderer.h"
-#include "..\Engine\Vector2.h"
-#include "..\Engine\Particle.h"
-#include "..\Engine\Random.h"
-#include "..\Engine\MathUtils.h"
-#include "..\Engine\Model.h"
-#include "..\Engine\ETime.h"
-#include "..\Engine\Transform.h"
+#include "..\Engine\Engine.h"
 
-#include <..\Engine\fmod.hpp>
+#include <fmod.hpp>
 #include <SDL.h>
 #include <iostream>
 #include <cstdlib>
@@ -26,7 +17,7 @@ int main(int argc, char* argv[])
 	input.Initialize();
 
 	Time time;
-
+	/*
 	// create audio system
 	FMOD::System* audio;
 	FMOD::System_Create(&audio);
@@ -57,6 +48,7 @@ int main(int argc, char* argv[])
 
 	audio->createSound("cowbell.wav", FMOD_DEFAULT, 0, &sound);
 	sounds.push_back(sound);
+	*/
 
 	std::vector<Particle> particles;
 	float offset = 0;
@@ -93,6 +85,7 @@ int main(int argc, char* argv[])
 		{
 			quit = true;
 		}
+		/*
 		float thrust = 0;
 		if (input.GetKeyDown(SDL_SCANCODE_UP))		thrust = 400;
 		if (input.GetKeyDown(SDL_SCANCODE_DOWN))	thrust = -400;
@@ -105,7 +98,7 @@ int main(int argc, char* argv[])
 		transform.position.x = Math::Wrap(transform.position.x,(float) renderer.GetWidth());
 		transform.position.x = Math::Wrap(transform.position.y,(float) renderer.GetHeight());
 		//transform.rotation = velocity.Angle();//rotation + time.GetDeltaTime();
-
+		*/
 
 		// UPDATE
 		Vector2 mousePosition = input.GetMousePosition();
@@ -124,7 +117,7 @@ int main(int argc, char* argv[])
 			if (particle.position.x > 800) particle.position.x = 0;
 			if (particle.position.x < 0) particle.position.x = 800;
 		}
-
+		/*
 		// DRUM MACHINE
 		if (input.GetKeyDown(SDL_SCANCODE_E) && !input.GetPreviousKeyDown(SDL_SCANCODE_E)) audio->playSound(sounds[2], 0, false, nullptr);
 		if (input.GetKeyDown(SDL_SCANCODE_R) && !input.GetPreviousKeyDown(SDL_SCANCODE_R)) audio->playSound(sounds[3], 0, false, nullptr);
@@ -132,6 +125,7 @@ int main(int argc, char* argv[])
 		if (input.GetKeyDown(SDL_SCANCODE_Y) && !input.GetPreviousKeyDown(SDL_SCANCODE_Y)) audio->playSound(sounds[5], 0, false, nullptr);
 		if (input.GetKeyDown(SDL_SCANCODE_Q) && !input.GetPreviousKeyDown(SDL_SCANCODE_Q)) audio->playSound(sounds[0], 0, false, nullptr);
 		if (input.GetKeyDown(SDL_SCANCODE_W) && !input.GetPreviousKeyDown(SDL_SCANCODE_W)) audio->playSound(sounds[1], 0, false, nullptr);
+		*/
 
 		// DRAW
 		// clear screen

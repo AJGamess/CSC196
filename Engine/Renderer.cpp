@@ -24,7 +24,7 @@ bool Renderer::CreateWindow(std::string title, int width, int height)
 	// returns pointer to window if successful or nullptr if failed
 	m_window = SDL_CreateWindow(title.c_str(),
 		SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-		800, 600,
+		width, height,
 		SDL_WINDOW_SHOWN);
 	if (m_window == nullptr)
 	{
@@ -71,4 +71,14 @@ void Renderer::DrawPoint(int x, int y)
 void Renderer::DrawPoint(float x, float y)
 {
 	SDL_RenderDrawPoint(m_renderer, x, y);
+}
+void Renderer::DrawRect(int x, int y, int w, int h)
+{
+	SDL_Rect rect{ x - w / 2,y - h / 2,w,h };
+	SDL_RenderFillRect(m_renderer, &rect);
+}
+void Renderer::DrawRect(float x, float y, float w, float h)
+{
+	SDL_Rect rect{ x - w / 2,y - h / 2,w,h };
+	SDL_RenderFillRect(m_renderer, &rect);
 }
