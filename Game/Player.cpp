@@ -32,6 +32,7 @@ void Player::Update(float dt)
 	{
 		m_fireTimer = 0.2f * m_fireModifer;
 
+		g_engine.GetAudio().PlaySound("bass.wav");
 		// shoot at mouse position
 		Vector2 direction = g_engine.GetInput().GetMousePosition() - m_transform.position;
 		float angle = direction.Angle();
@@ -54,6 +55,7 @@ void Player::OnCollision(Actor* actor)
 {
 	if (actor->GetTag() == "Enemy")
 	{
+		g_engine.GetAudio().PlaySound("clap.wav");
 		m_destroyed = true;
 		dynamic_cast<MyGame*>(m_scene->GetGame())->OnPlayerDeath();
 	}

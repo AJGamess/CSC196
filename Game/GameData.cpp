@@ -19,4 +19,13 @@ namespace GameData
 	{ 5, 0 }
 	};
 
+	const std::vector<Vector2>pickupPoints
+	{
+		{5,0},
+		{-5,0},
+		{-5, -5},
+		{0, -5},
+		{0,5},
+	};
+
 }

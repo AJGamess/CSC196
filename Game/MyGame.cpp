@@ -22,6 +22,10 @@ bool MyGame::Initialize()
     m_textLives = new Text(m_font);
     m_textTitle = new Text(m_fontLarge);
 
+    m_engine->GetAudio().AddSound("clap.wav");
+    m_engine->GetAudio().AddSound("bass.wav");
+    m_engine->GetAudio().AddSound("fish.mp3");
+
     return true;
 }
 
@@ -31,6 +35,7 @@ void MyGame::Shutdown()
 
 void MyGame::Update(float dt)
 {
+    
     switch (m_state)
     {
     case eState::Title:
@@ -76,7 +81,7 @@ void MyGame::Update(float dt)
             m_scene->AddActor(std::move(enemy));
 
             // create pickup
-            auto* pickupModel = new Model{ GameData::shipPoints, Color{ 1, 1, 1 } };
+            auto* pickupModel = new Model{ GameData::pickupPoints, Color{ 245, 158, 66 } };
             auto pickup = std::make_unique<PickUp>(Transform{ { random(g_engine.GetRenderer().GetWidth()),  random(g_engine.GetRenderer().GetHeight()) }, 0, 2 }, pickupModel);
             pickup->SetTag("Pickup");
             m_scene->AddActor(std::move(pickup));
@@ -87,6 +92,7 @@ void MyGame::Update(float dt)
         m_stateTimer -= dt;
         if (m_stateTimer <= 0)
         {
+           
             m_state = eState::StartLevel;
         }
         break;

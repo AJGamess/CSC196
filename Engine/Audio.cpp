@@ -25,7 +25,7 @@ bool Audio::AddSound(const std::string& name)
 	FMOD::Sound* sound = nullptr;
 	m_audio->createSound(name.c_str(), FMOD_DEFAULT, 0, &sound);
 
-	if (sound == nullptr)std::cerr << "Could not load sound : " << name << std::endl; return false;
+	if (sound == nullptr) { std::cerr << "Could not load sound : " << name << std::endl; return false; }
 
 	m_sounds[name] = sound;
 	return true;
