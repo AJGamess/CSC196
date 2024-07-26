@@ -21,22 +21,22 @@ struct Color
 	Color operator - (const Color& c) const { return Color{ r - c.r, g - c.g, b - c.b, a - c.a }; }
 	Color operator * (const Color& c) const { return Color{ r * c.r, g * c.g, b * c.b, a * c.a }; }
 	Color operator / (const Color& c) const { return Color{ r / c.r, g / c.g, b / c.b, a / c.a }; }
-	/*
-	Color operator + (float s) const { return Color{ x + s, y + s }; }
-	Color operator - (float s) const { return Color{ x - s, y - s }; }
-	Color operator * (float s) const { return Color{ x * s, y * s }; }
-	Color operator / (float s) const { return Color{ x / s, y / s }; }
 	
-	Color& operator += (const Color& v) { x += v.x; y += v.y; return *this + v; }
-	Color& operator += (const Color& v) { x -= v.x; y -= v.y; return *this + v; }
-	Color& operator += (const Color& v) { x *= v.x; y *= v.y; return *this + v; }
-	Color& operator += (const Color& v) { x /= v.x; y /= v.y; return *this + v; }
-							  
-	Color& operator += (float s) { x += s; y += s; return *this + v; }
-	Color& operator += (float s) { x -= s; y -= s; return *this + v; }
-	Color& operator += (float s) { x *= s; y *= s; return *this + v; }
-	Color& operator += (float s) { x /= s; y /= s; return *this + v; }
-	*/
+	Color operator + (float s) const { return Color{ r + s, g + s, b + s, a + s }; }
+	Color operator - (float s) const { return Color{ r - s, g - s, b - s, a - s }; }
+	Color operator * (float s) const { return Color{ r * s, g * s, b * s, a * s }; }
+	Color operator / (float s) const { return Color{ r / s, g / s, b / s, a / s }; }
+
+	Color& operator += (const Color& c) { r += c.r, g + c.g, b + c.b, a + c.a;  return *this; }
+	Color& operator -= (const Color& c) { r -= c.r, g -= c.g, b -= c.b, a -= c.a;  return *this; }
+	Color& operator *= (const Color& c) { r *= c.r, g *= c.g, b *= c.b, a *= c.a; return *this; }
+	Color& operator /= (const Color& c) { r /= c.r, g /= c.g, b /= c.b, a /= c.a; return *this; }
+
+	Color& operator += (float s) { r += s, g += s, b += s, a += s; return *this; }
+	Color& operator -= (float s) { r -= s, g -= s, b -= s, a -= s; return *this; }
+	Color& operator *= (float s) { r *= s, g *= s, b *= s, a *= s; return *this; }
+	Color& operator /= (float s) { r /= s, g /= s, b /= s, a /= s; return *this; }
+	
 
 	static uint8_t ToInt(float c) { return static_cast<uint8_t>(Math::Clamp(c, 0.0f, 1.0f) * 255); };
 };
